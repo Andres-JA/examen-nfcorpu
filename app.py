@@ -12,20 +12,13 @@ def create_app(engine=None):
     def health():
         return jsonify(status='ok', corpus='nfcorpus', documents=len(engine.ids), models=['tfidf', 'bm25'])
 
-    @app.route('/search', methods=['GET', 'POST'])
+    @app.post('/search')
     def search():
-        if request.method == 'GET':
-            payload = request.args.to_dict()
-            try:
-                payload['top_k'] = int(payload.get('top_k', '10'))
-            except ValueError:
-                return jsonify(error='top_k debe ser un entero'), 400
-        else:
-            if not request.is_json:
-                return jsonify(error='Se requiere Content-Type: application/json'), 415
-            payload = request.get_json(silent=True)
-            if not isinstance(payload, dict):
-                return jsonify(error='El cuerpo debe ser un objeto JSON válido'), 400
+        if not request.is_json:
+            return jsonify(error='Se requiere Content-Type: application/json'), 415
+        payload = request.get_json(silent=True)
+        if not isinstance(payload, dict):
+            return jsonify(error='El cuerpo debe ser un objeto JSON válido'), 400
         try:
             return jsonify(engine.search(payload.get('query'), payload.get('model', 'bm25'), payload.get('top_k', 10)))
         except (ValueError, TypeError) as exc:
