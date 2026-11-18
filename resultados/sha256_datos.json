@@ -1,0 +1,7 @@
+{
+  "datos\\nfcorpus\\corpus\\corpus-00000-of-00001.parquet": "f2a1c0b570a5efdf23cfa36f5e573d062cc113c6e7251e22c69b323a33ea895e",
+  "datos\\nfcorpus\\queries\\queries-00000-of-00001.parquet": "edd2b878b8130fb3b5e3c4b9428ddc1e67fbd6eedf8ae099fca3b87838ba6b29",
+  "datos\\nfcorpus-qrels\\dev.tsv": "b1d38b5e8f78c4a5820bce2b7ec2db54911d7690dc601e76811846b211180bd8",
+  "datos\\nfcorpus-qrels\\test.tsv": "f8fba6ef3d4dd9c3a242a8ba4ae38276fc3622fce7dcbae764766d564542fd2a",
+  "datos\\nfcorpus-qrels\\train.tsv": "6336b80f9bffc4f063f3aa450047ad35c0b7c534efe4a6ba35e16dbace047f6a"
+}
